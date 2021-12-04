@@ -12,7 +12,23 @@ object Day2 extends Solve {
     finally filestream.close()
   }
 
-  def part1(data: List[(String, Int)]): Int = 0
+  def part1(data: List[(String, Int)]): Int = {
+    // separate horizontal and vertical movement
+    val (horizontal, vertical) = data.partition {
+      case ("forward", _) => true
+      case ("down", _) => false
+      case ("up", _) => false
+    }
+
+    // sum movement values
+    val sum_h = horizontal.map(_._2).sum
+    val sum_v = vertical.map {
+      case ("down", x) => x
+      case ("up", x) => -x
+    }.sum
+
+    sum_h * sum_v
+  }
 
   def part2(data: List[(String, Int)]): Int = 0
 
@@ -20,12 +36,9 @@ object Day2 extends Solve {
     val data_sample: List[(String, Int)] = getInput(sample_name);
     val data_input: List[(String, Int)] = getInput(input_name);
 
-    data_sample foreach println
-
     println("sample 1: " + part1(data_sample))
-//    println("Part 1: "   + part1(data_input))
+    println("Part 1: "   + part1(data_input))
 //    println("sample 2: " + part2(data_sample))
 //    println("Part 2: "   + part2(data_input))
   }
 }
-
