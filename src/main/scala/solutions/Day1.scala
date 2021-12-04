@@ -2,11 +2,12 @@ package solutions
 
 import scala.io.Source
 
-object Day1 {
+object Day1 extends Solve {
   private def getInput(filename: String): List[Int] = {
     val filestream = Source.fromFile(filename)
 
-    try filestream.getLines().toList.filter(_ != "").map(_.toInt)
+    try filestream.getLines().toList.filter(_ != "")
+      .map(_.toInt)
     finally filestream.close()
   }
 
@@ -32,13 +33,12 @@ object Day1 {
       // count how many times the depth increased
       .count(_ == true)
 
-  def solve(sample_name: String, input_name: String): Unit = {
+  override def solve(sample_name: String, input_name: String): Unit = {
     val data_sample: List[Int] = getInput(sample_name);
     val data_input: List[Int] = getInput(input_name);
 
     println("sample 1: " + part1(data_sample))
     println("Part 1: "   + part1(data_input))
-
     println("sample 2: " + part2(data_sample))
     println("Part 2: "   + part2(data_input))
   }
