@@ -37,10 +37,10 @@ echo -e "package solutions\n\n"\
 "    val data_sample: List[$input_type] = getInput(sample_name);\n"\
 "    val data_input: List[$input_type] = getInput(input_name);\n\n"\
 \
-"    println(\"sample 1: \" + part1(data_sample))\n"\
-"    println(\"Part 1: \"   + part1(data_input))\n"\
-"    println(\"sample 2: \" + part2(data_sample))\n"\
-"    println(\"Part 2: \"   + part2(data_input))\n"\
+"    println(\"Sample 1: \" + part1(data_sample))\n"\
+"    println(\"Part 1:   \" + part1(data_input))\n"\
+"    println(\"Sample 2: \" + part2(data_sample))\n"\
+"    println(\"Part 2:   \" + part2(data_input))\n"\
 "  }\n"\
 "}\n"\
 > "solutions/Day$1.scala"
