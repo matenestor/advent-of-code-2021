@@ -24,10 +24,12 @@ object Day2 extends Solve {
 
     // sum movement values
     val sum_h: Int = horizontal.map(_._2).sum
-    val sum_v: Int = vertical.map {
-      case ("down", x) => x
-      case ("up", x) => -x
-    }.sum
+    val sum_v: Int = vertical
+      .map {
+        case ("down", x) => x
+        case ("up", x) => -x
+      }
+      .sum
 
     sum_h * sum_v
   }
@@ -36,13 +38,31 @@ object Day2 extends Solve {
     // sum only horizontal movement
     val sum_h: Int = data
       .filter(_._1 == "forward")
-      .map(_._2).sum
+      .map(_._2)
+      .sum
 
-    -1
+    val sum_v = data
+      // create aim changing values
+      .map {
+        case ("forward", x) => 0
+        case ("down", x)    => x
+        case ("up", x)      => -x
+      }
+      // create accumulated aim values
+      .scanLeft(0)(_ + _)
+      // zip with original data
+      .zip(data)
+      // movement is only when "forward" comes
+      .filter(_._2._1 == "forward")
+      // multiply aim with forward value
+      .map(x => x._1 * x._2._2)
+      .sum
+
+    sum_h * sum_v
   }
 
   def part2_var(data: List[(String, Int)]): Int = {
-    // method with mutable variable
+    // method with mutable variables (easy solution)
 
     var (aim, sum_h, sum_v): (Int, Int, Int) = (0, 0, 0)
 
@@ -66,9 +86,7 @@ object Day2 extends Solve {
 
     println("Sample 1: " + part1(data_sample))
     println("Part 1:   " + part1(data_input))
-//    println("Sample 2: " + part2(data_sample))
-//    println("Part 2:   " + part2(data_input))
-    println("Sample 2 var: " + part2_var(data_sample))
-    println("Part 2 var: "   + part2_var(data_input))
+    println("Sample 2: " + part2(data_sample))
+    println("Part 2:   " + part2(data_input))
   }
 }
