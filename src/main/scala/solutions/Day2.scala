@@ -1,7 +1,6 @@
 package solutions
 
 import scala.io.Source
-import scala.util.Try
 
 object Day2 extends Solve {
   private def getInput(filename: String): List[(String, Int)] = {
