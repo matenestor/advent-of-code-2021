@@ -42,7 +42,7 @@ echo -e "package solutions\n\n"\
 "    println(\"Sample 2: \" + part2(data_sample))\n"\
 "    println(\"Part 2:   \" + part2(data_input))\n"\
 "  }\n"\
-"}\n"\
+"}"\
 > "solutions/Day$1.scala"
 echo "solutions/Day$1.scala"
 
