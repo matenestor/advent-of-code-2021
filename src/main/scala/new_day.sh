@@ -38,9 +38,9 @@ echo -e "package solutions\n\n"\
 "    val data_input: List[$input_type] = getInput(input_name);\n\n"\
 \
 "    println(\"Sample 1: \" + part1(data_sample))\n"\
-"    println(\"Part 1:   \" + part1(data_input))\n"\
-"    println(\"Sample 2: \" + part2(data_sample))\n"\
-"    println(\"Part 2:   \" + part2(data_input))\n"\
+"//    println(\"Part 1:   \" + part1(data_input))\n"\
+"//    println(\"Sample 2: \" + part2(data_sample))\n"\
+"//    println(\"Part 2:   \" + part2(data_input))\n"\
 "  }\n"\
 "}"\
 > "solutions/Day$1.scala"
